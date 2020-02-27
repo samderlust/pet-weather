@@ -1,13 +1,14 @@
-import { CreatePet } from './../../containers/CreatePet';
-import { setAllPests, setErrorMessage } from './../actions/petActions';
+import { setAllPests, setErrorMessage, setCurrentPet } from '../actions';
 import {
   ISetAllPetActions,
   ICreateNewPet,
-  ISetErrorMessage
-} from './../types/petType';
-import { fetchAllPets, fetchCreatePet } from './../../api/pet';
-import { IGetAllPetsActions } from '../types';
-import { petActions } from './../types';
+  IGetPetById,
+  ISetErrorMessage,
+  IGetAllPetsActions,
+  petActions
+} from '../types';
+import { fetchAllPets, fetchCreatePet, fetchPetById } from '../../api/pet';
+
 import { put, call, takeLatest } from 'redux-saga/effects';
 
 function* fetchAllPetsSaga(action: IGetAllPetsActions) {
@@ -32,7 +33,19 @@ function* createNewPetSaga(action: ICreateNewPet) {
   }
 }
 
+function* getPetByIdSaga(action: IGetPetById) {
+  yield put(setCurrentPet(undefined));
+  try {
+    const res = yield call(fetchPetById, action.data);
+    const pet = res.data;
+    yield put(setCurrentPet(pet));
+  } catch (error) {
+    console.log(error);
+    yield put(setCurrentPet(null));
+  }
+}
 export function* watchPetSagas() {
   yield takeLatest(petActions.GET_ALL_PETS, fetchAllPetsSaga);
   yield takeLatest(petActions.CREATE_A_PET, createNewPetSaga);
+  yield takeLatest(petActions.GET_PET_BY_ID, getPetByIdSaga);
 }

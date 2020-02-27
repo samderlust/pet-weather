@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getAllPets } from '../stores/actions';
 import { StoreState } from '../stores/reducers';
-import { IPet } from '../stores/types';
 import { Container, Typography } from '@material-ui/core';
 import { PetTable } from '../components/PetTable';
 import { PetAppBar } from '../components/PetAppBar';

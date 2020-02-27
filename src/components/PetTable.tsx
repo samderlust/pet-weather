@@ -23,7 +23,6 @@ const _PetTable = (props: IPetTableProps) => {
             <TableCell>Name</TableCell>
             <TableCell align="right">Type</TableCell>
             <TableCell align="right">Breed</TableCell>
-            <TableCell align="right">Location</TableCell>
             <TableCell align="right">Action</TableCell>
           </TableRow>
         </TableHead>
@@ -35,7 +34,6 @@ const _PetTable = (props: IPetTableProps) => {
               </TableCell>
               <TableCell align="right">{pet.type}</TableCell>
               <TableCell align="right">{pet.breed}</TableCell>
-              <TableCell align="right">{pet.location}</TableCell>
               <TableCell align="right">
                 <Button
                   variant="contained"

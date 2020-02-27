@@ -1,7 +1,10 @@
+import { IPet, IWeather } from './../types/petType';
 import { IPetReducers, IPetAction, petActions } from '../types/petType';
 const INIT_STATE: IPetReducers = {
   allPets: [],
-  error: ''
+  error: '',
+  currentPet: null,
+  currentWeather: {} as IWeather
 };
 export const petReducer = (
   state: IPetReducers = INIT_STATE,
@@ -12,6 +15,10 @@ export const petReducer = (
       return { ...state, allPets: action.data };
     case petActions.SET_ERROR_MESSAGE:
       return { ...state, error: action.data };
+    case petActions.SET_CURRENT_PET:
+      return { ...state, currentPet: action.data };
+    case petActions.SET_CURRENT_WEATHER:
+      return { ...state, currentWeather: action.data };
     default:
       return state;
   }

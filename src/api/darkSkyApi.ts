@@ -1,8 +1,8 @@
-import { darkSkyKey } from './../../secrect';
+import { darkSkyKey } from '../secrect';
 import axios, { AxiosInstance } from 'axios';
 
 const instance = axios.create({
-  baseURL: `https://api.darksky.net/forecast/${darkSkyKey}/`,
+  baseURL: `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${darkSkyKey}/`,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
