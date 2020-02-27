@@ -5,6 +5,7 @@ import { ThemeProvider } from '@material-ui/styles';
 import { configureStore } from '../stores';
 import { HomeScreen } from './HomeScreen';
 import { Router } from './Router';
+
 // import { AppRouter } from './screens/AppRouter';
 const muiTheme = createMuiTheme({
   palette: {
