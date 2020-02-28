@@ -5,6 +5,7 @@ import { put, call, takeLatest } from 'redux-saga/effects';
 import { fetchForecast } from '../../api/darkSkyApi';
 
 function* getCurrentWeatherSaga(action: IGetCurrentWeather) {
+  setCurrentWeather(undefined);
   try {
     const res = yield call(fetchForecast, action.data.lat, action.data.lng);
     const weather = res.data;
@@ -12,7 +13,6 @@ function* getCurrentWeatherSaga(action: IGetCurrentWeather) {
     yield put<ISetCurrentWeather>(
       setCurrentWeather({ icon, precipType, precipIntensity, summary })
     );
-    console.log(weather);
   } catch (error) {
     console.log(error);
   }

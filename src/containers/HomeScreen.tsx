@@ -45,6 +45,7 @@ const _HomeScreen = (props: IHomeScreenProps & StateProps) => {
         <Typography className={classes.header} variant="h3">
           Does my Pet need an Umbrella?
         </Typography>
+        {/* <PetMapView /> */}
         <PetTable allPets={allPets} />
       </div>
     </Container>

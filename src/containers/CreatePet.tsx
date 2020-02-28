@@ -105,6 +105,10 @@ const _CreatePet = (props: ICreatePetProps & StateProps) => {
       setErrorField('latitude');
       setErrorText(`latitude must be a number`);
       return false;
+    } else if (parseFloat(latitude) < -90 || parseFloat(latitude) > 90) {
+      setErrorField('latitude');
+      setErrorText(`latitude value invalid`);
+      return false;
     } else if (longitude === '') {
       setErrorField('longitude');
       setErrorText(`longitude can't be empty`);
@@ -112,6 +116,10 @@ const _CreatePet = (props: ICreatePetProps & StateProps) => {
     } else if (isNaN(parseFloat(longitude))) {
       setErrorField('longitude');
       setErrorText(`longitude must be a number`);
+      return false;
+    } else if (parseFloat(longitude) < -180 || parseFloat(longitude) > 180) {
+      setErrorField('longitude');
+      setErrorText(`longitude value invalide`);
       return false;
     }
 

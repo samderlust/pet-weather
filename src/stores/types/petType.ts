@@ -15,7 +15,7 @@ export interface IPetReducers {
   allPets: IPet[];
   error: string;
   currentPet: IPet | null | undefined;
-  currentWeather: IWeather;
+  currentWeather: IWeather | undefined;
 }
 
 export interface IPet {
@@ -66,7 +66,7 @@ export interface ISetCurrentPet extends Action {
 
 export interface ISetCurrentWeather extends Action {
   type: petActions.SET_CURRENT_WEATHER;
-  data: IWeather;
+  data: IWeather | undefined;
 }
 
 export interface IGetCurrentWeather extends Action {

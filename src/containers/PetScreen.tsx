@@ -36,8 +36,6 @@ const _PetScreen = (props: IPetScreenProps & StateProps) => {
     getPetById
   } = props;
 
-  const { icon, precipIntensity, precipType } = currentWeather;
-
   useEffect(() => {
     console.log(id);
     getPetById(id);
@@ -55,7 +53,7 @@ const _PetScreen = (props: IPetScreenProps & StateProps) => {
   }, [currentWeather]);
 
   const getImage = () => {
-    if (icon === 'fog') {
+    if (currentWeather?.icon === 'fog') {
       if (currentPet?.type === 'dog') setImage(require('../img/dogRain.jpg'));
       else setImage(require('../img/catRain.jpg'));
       setAnswer('Yes!');
@@ -75,7 +73,7 @@ const _PetScreen = (props: IPetScreenProps & StateProps) => {
   return (
     <Container>
       <PetAppBar />
-      {currentPet && (
+      {currentPet && currentWeather && (
         <Card>
           <CardHeader title={currentPet?.name} />
           <CardMedia
@@ -106,7 +104,9 @@ const _PetScreen = (props: IPetScreenProps & StateProps) => {
         </Card>
       )}
       <div>
-        {currentPet === undefined && <h1>Loading....</h1>}
+        {currentPet === undefined && currentWeather === undefined && (
+          <h1>Loading....</h1>
+        )}
         {currentPet === null && <h1>This Pet is not available</h1>}
       </div>
     </Container>

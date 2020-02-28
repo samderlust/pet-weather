@@ -41,7 +41,9 @@ export const setCurrentPet = (
   data: pet
 });
 
-export const setCurrentWeather = (weather: IWeather): ISetCurrentWeather => ({
+export const setCurrentWeather = (
+  weather: IWeather | undefined
+): ISetCurrentWeather => ({
   type: petActions.SET_CURRENT_WEATHER,
   data: weather
 });

@@ -2,7 +2,8 @@ import { IPet } from './../stores/types/petType';
 import axios, { AxiosInstance } from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://pet-shelter-samderlust.herokuapp.com/api/',
+  baseURL: 'http://localhost:3000/api',
+  // baseURL: 'https://pet-shelter-samderlust.herokuapp.com/api/',
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',

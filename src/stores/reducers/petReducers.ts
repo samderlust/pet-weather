@@ -4,7 +4,7 @@ const INIT_STATE: IPetReducers = {
   allPets: [],
   error: '',
   currentPet: null,
-  currentWeather: {} as IWeather
+  currentWeather: undefined
 };
 export const petReducer = (
   state: IPetReducers = INIT_STATE,
