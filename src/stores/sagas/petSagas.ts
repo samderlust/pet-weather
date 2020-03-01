@@ -1,3 +1,4 @@
+import { setIsCreating } from './../actions/petActions';
 import { setAllPests, setErrorMessage, setCurrentPet } from '../actions';
 import {
   ISetAllPetActions,
@@ -21,6 +22,7 @@ function* fetchAllPetsSaga(action: IGetAllPetsActions) {
 }
 
 function* createNewPetSaga(action: ICreateNewPet) {
+  setIsCreating(true);
   try {
     yield call(fetchCreatePet, action.data);
     yield put(action.history.push('/'));
@@ -31,6 +33,7 @@ function* createNewPetSaga(action: ICreateNewPet) {
       yield put<ISetErrorMessage>(setErrorMessage(err));
     }
   }
+  setIsCreating(false);
 }
 
 function* getPetByIdSaga(action: IGetPetById) {

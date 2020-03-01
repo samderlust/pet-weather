@@ -58,7 +58,7 @@ const _CreatePet = (props: ICreatePetProps & StateProps) => {
   const history = useHistory();
 
   const {
-    petReducer: { error }
+    petReducer: { error, isCreating }
   } = props;
 
   const handleChooosePetTypes = (
@@ -213,6 +213,7 @@ const _CreatePet = (props: ICreatePetProps & StateProps) => {
         />
         <Typography style={{ color: 'red' }}>{error}</Typography>
         <Button
+          disabled={isCreating}
           className={classes.input}
           variant="contained"
           color="primary"

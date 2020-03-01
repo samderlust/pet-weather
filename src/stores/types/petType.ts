@@ -8,7 +8,8 @@ export enum petActions {
   GET_PET_BY_ID = 'GET_PET_BY_ID',
   SET_CURRENT_PET = 'SET_CURRENT_PET',
   GET_CURRENT_WEATHER = 'GET_CURRENT_WEATHER',
-  SET_CURRENT_WEATHER = 'SET_CURRENT_WEATHER'
+  SET_CURRENT_WEATHER = 'SET_CURRENT_WEATHER',
+  SET_IS_CREATING = 'SET_IS_CREATING'
 }
 
 export interface IPetReducers {
@@ -16,6 +17,7 @@ export interface IPetReducers {
   error: string;
   currentPet: IPet | null | undefined;
   currentWeather: IWeather | undefined;
+  isCreating: boolean;
 }
 
 export interface IPet {
@@ -76,11 +78,17 @@ export interface IGetCurrentWeather extends Action {
     lng: number;
   };
 }
+
+export interface ISetIsCreating extends Action {
+  type: petActions.SET_IS_CREATING;
+  data: boolean;
+}
 export type IPetAction =
   | IGetAllPetsActions
   | ISetAllPetActions
   | ICreateNewPet
   | IGetPetById
   | ISetCurrentPet
+  | ISetIsCreating
   | ISetCurrentWeather
   | ISetErrorMessage;

@@ -34,7 +34,7 @@ const _PetMapView = (props: IPetMapViewProps & StateProps) => {
           lat: 45.2487862,
           lng: -76.3606792
         }}
-        defaultZoom={5}
+        defaultZoom={6}
         yesIWantToUseGoogleMapApiInternals={true}
       >
         {allPets.map(pet => (

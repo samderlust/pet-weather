@@ -4,7 +4,8 @@ const INIT_STATE: IPetReducers = {
   allPets: [],
   error: '',
   currentPet: null,
-  currentWeather: undefined
+  currentWeather: undefined,
+  isCreating: false
 };
 export const petReducer = (
   state: IPetReducers = INIT_STATE,
@@ -19,6 +20,8 @@ export const petReducer = (
       return { ...state, currentPet: action.data };
     case petActions.SET_CURRENT_WEATHER:
       return { ...state, currentWeather: action.data };
+    case petActions.SET_IS_CREATING:
+      return { ...state, isCreating: action.data };
     default:
       return state;
   }

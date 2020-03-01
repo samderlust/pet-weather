@@ -7,7 +7,8 @@ import {
   IGetPetById,
   IWeather,
   ISetCurrentWeather,
-  IGetCurrentWeather
+  IGetCurrentWeather,
+  ISetIsCreating
 } from './../types/petType';
 import { IGetAllPetsActions, petActions } from '../types/petType';
 export const getAllPets = (): IGetAllPetsActions => ({
@@ -54,4 +55,9 @@ export const getCurrentWeather = (
 ): IGetCurrentWeather => ({
   type: petActions.GET_CURRENT_WEATHER,
   data: { lat, lng }
+});
+
+export const setIsCreating = (isCreating: boolean): ISetIsCreating => ({
+  type: petActions.SET_IS_CREATING,
+  data: isCreating
 });
