@@ -10,6 +10,8 @@ You can create your own pet as well.
 
 The app is connected with Pet Shelter API which stores the pet. And DarkSkyAPI to retrieve the weather info.
 
+You can find the app here: https://pet-weather-samderlust.herokuapp.com/
+
 ## Set up .env environment variable
 
 - create a .env file outside of src folder
