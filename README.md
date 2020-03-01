@@ -10,6 +10,12 @@ You can create your own pet as well.
 
 The app is connected with Pet Shelter API which stores the pet. And DarkSkyAPI to retrieve the weather info.
 
+## Set up .env environment variable
+
+- create a .env file outside of src folder
+- create key REACT_APP_GOOGLE_API_KEY and provide your Google API key
+- create key REACT_APP_WEATHER_API_KEY and provide your darksky API key
+
 ## Set up in Local host
 
 - git checkout at https://github.com/samderlust/pet-weather.git
