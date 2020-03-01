@@ -79,9 +79,9 @@ const _PetScreen = (props: IPetScreenProps & StateProps) => {
           <CardMedia
             component="img"
             style={{
-              objectFit: 'cover'
+              objectFit: 'cover',
+              height: '65vh'
             }}
-            height={400}
             image={image}
           />
 

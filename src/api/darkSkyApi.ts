@@ -1,7 +1,9 @@
 import axios, { AxiosInstance } from 'axios';
 
+const WEATHER_KEY = process.env.REACT_APP_WEATHER_API_KEY as string;
+
 const instance = axios.create({
-  baseURL: `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/f8ee0ea49c6382af42966d781ba6f9a5/`,
+  baseURL: `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${WEATHER_KEY}/`,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
