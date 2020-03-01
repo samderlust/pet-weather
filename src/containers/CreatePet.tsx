@@ -86,6 +86,8 @@ const _CreatePet = (props: ICreatePetProps & StateProps) => {
     ));
 
   const validateField = (): boolean => {
+    const regexp = /^[+-]?\d*\.\d*$/;
+
     props.setErrorMessage('');
     setErrorField('');
     setErrorText('');
@@ -109,6 +111,10 @@ const _CreatePet = (props: ICreatePetProps & StateProps) => {
       setErrorField('latitude');
       setErrorText(`latitude value invalid`);
       return false;
+    } else if (!regexp.test(latitude)) {
+      setErrorField('latitude');
+      setErrorText(`latitude can only contain decimal number`);
+      return false;
     } else if (longitude === '') {
       setErrorField('longitude');
       setErrorText(`longitude can't be empty`);
@@ -121,8 +127,11 @@ const _CreatePet = (props: ICreatePetProps & StateProps) => {
       setErrorField('longitude');
       setErrorText(`longitude value invalide`);
       return false;
+    } else if (!regexp.test(longitude)) {
+      setErrorField('longitude');
+      setErrorText(`longitude can only contain decimal number`);
+      return false;
     }
-
     return true;
   };
 
